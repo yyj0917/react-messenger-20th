@@ -29,7 +29,7 @@
 - tailwindcss의 사용법에 익숙해집니다.
 
 ## 기한
-2024년 9월 28일 토요일
+2024년 9월 27일 금요일
 
 ## 필수 구현 기능
 - 피그마를 보고 [결과화면](https://react-messenger-shu.vercel.app/chat/1)과 같이 구현합니다.
