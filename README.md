@@ -18,8 +18,9 @@
 
 ## Key Questions
 - 디자이너로부터 전달받은 피그마 링크, 피그마 캡처본, 디자이너와의 소통 tmi 등
-- JavaScript를 사용할때에 비해 TypeScript를 사용할 때의 장점은 무엇인가요?
-- SSR과 CSR 특성 및 차이점
+- JSX, JS, TSX, TS 각각의 확장자 개념 사용이유와 차이점.
+- TypeScript를 사용하는 이유.
+- SSR과 CSR 특성 및 차이점.
 
 ## 미션 목표
 - TypeScript를 사용해봅시다.
