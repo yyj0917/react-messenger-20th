@@ -21,15 +21,15 @@ const TNB: React.FC<TNBProps> = ({ name, user, chat }) => {
         case 'profile':
             return (
             <div className='w-full h-full flex justify-between items-center px-5'>
-                <div className='flex justify-center items-center'>
+                <div className='flex justify-center items-center hover:bg-gray100 hover:rounded-lg cursor-pointer'>
                     <span><LockIcon/></span>
                     <span className=' text-title-1'>s.ol_lala</span>
                     <span><DownIcon/></span>
                 </div>
                 <div className='w-[118px] flex justify-between items-center'>
-                    <span><ThreadsIcon/></span>
-                    <span><PlusIcon/></span>
-                    <span><MenuIcon/></span>
+                    <span className='rounded-full cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'><ThreadsIcon/></span>
+                    <span className='rounded-full cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'><PlusIcon/></span>
+                    <span className='rounded-full cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'><MenuIcon/></span>
                 </div>
             </div>
             );

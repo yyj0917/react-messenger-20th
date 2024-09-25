@@ -8,15 +8,15 @@ export default function Description() {
             <header className='w-full h-[110px] flex items-center gap-[21px] pl-3 pr-[26px] py-4'>
                 <img src={profileImage} alt='profile' className='w-[88px] h-[88px] rounded-full'/>
                 <div className='w-[228px] h-[40px] inline-flex gap-8'>
-                    <span className='text-center'>
+                    <span className='text-center cursor-pointer'>
                         <p className='text-title-2'>3</p>
                         <p className='text-body-2-m'>posts</p>
                     </span>
-                    <span className='text-center'>
+                    <span className='text-center cursor-pointer'>
                         <p className='text-title-2'>1000</p>
                         <p className='text-body-2-m'>followers</p>
                     </span>
-                    <span className='text-center'>
+                    <span className='text-center cursor-pointer'>
                         <p className='text-title-2'>1000</p>
                         <p className='text-body-2-m'>following</p>
                     </span>
@@ -29,11 +29,11 @@ export default function Description() {
                 </div>
                 <div className='flex gap-2 items-center h-[18px] text-caption text-main'>
                     <LinkIcon className='fill-current text-main'/>
-                    <p>www.instagram.com</p>
+                    <a href="https://www.instagram.com">www.instagram.com</a>
                 </div>
             </section>
             <footer className='px-4'>
-                <button className='w-full h-[37px] inline-flex justify-center items-center gap-[10px] px-[135px] py-2 rounded-sm bg-gray100 text-gray600 text-center text-caption'>Edit Profile</button>
+                <button className='w-full h-[37px] inline-flex justify-center items-center gap-[10px] px-[135px] py-2 rounded-lg bg-gray100 text-gray600 text-center text-caption hover:bg-gray200'>Edit Profile</button>
             </footer>
         </div>
   );
