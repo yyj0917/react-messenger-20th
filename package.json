@@ -1,5 +1,5 @@
 {
-  "name": "react-messenger-19th",
+  "name": "react-messenger-20th",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,6 +43,9 @@
     ]
   },
   "devDependencies": {
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/webpack": "^8.1.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13"
