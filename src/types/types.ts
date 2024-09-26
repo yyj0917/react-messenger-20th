@@ -3,7 +3,8 @@ export interface User {
     id: number;
     username: string;
     fullName: string;
-    profileImage: string;
+    displayName: string;
+    profileImage?: string;
     posts?: number;
     followers: number;
     following: number;
@@ -25,5 +26,19 @@ export interface User {
     senderId: number;
     content: string;
     sentAt: string;
+  }
+  
+export interface Friend_User {
+    username: string;
+    displayName: string;
+    profileImage?: string;
+    instagramLink?: string;
+  }
+  export interface Chat_User {
+    username: string;
+    profileImage?: string;
+    lastMessage?: string;
+    updatedAt: string;
+    isActivated: boolean;
   }
   

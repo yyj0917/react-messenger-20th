@@ -1,11 +1,11 @@
 import React from 'react';
-import { ReactComponent as ProfileIconD } from '../assets/svg/profileD.svg'; // 프로필 아이콘 불러오기
-import { ReactComponent as ProfileIconH } from '../assets/svg/profileH.svg'; // 프로필 아이콘 불러오기
-import { ReactComponent as HomeIcon } from '../assets/svg/home.svg'; // 홈 아이콘 불러오기
-import { ReactComponent as LikeIcon } from '../assets/svg/like.svg'; // 좋아요 아이콘 불러오기
-import { ReactComponent as SearchIcon } from '../assets/svg/search.svg'; // 검색 아이콘 불러오기
-import { ReactComponent as MessageIconD } from '../assets/svg/messageD.svg'; // 메시지 아이콘 불러오기
-import { ReactComponent as MessageIconH } from '../assets/svg/messageH.svg'; // 메시지 아이콘 불러오기
+import { ReactComponent as ProfileIconD } from '../../assets/svg/profileD.svg'; // 프로필 아이콘 불러오기
+import { ReactComponent as ProfileIconH } from '../../assets/svg/profileH.svg'; // 프로필 아이콘 불러오기
+import { ReactComponent as HomeIcon } from '../../assets/svg/home.svg'; // 홈 아이콘 불러오기
+import { ReactComponent as LikeIcon } from '../../assets/svg/like.svg'; // 좋아요 아이콘 불러오기
+import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg'; // 검색 아이콘 불러오기
+import { ReactComponent as MessageIconD } from '../../assets/svg/messageD.svg'; // 메시지 아이콘 불러오기
+import { ReactComponent as MessageIconH } from '../../assets/svg/messageH.svg'; // 메시지 아이콘 불러오기
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
