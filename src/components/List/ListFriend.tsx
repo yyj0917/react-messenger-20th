@@ -1,19 +1,18 @@
 import React from 'react';
 import { ReactComponent as HumanIcon } from '../../assets/svg/human.svg';
-import { Friend_User } from '../../types/types';
+// import { Friend_User } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
+import { User } from '../../types/types';
 
 // ListFriend 컴포넌트의 props 타입
 interface ListFriendProps {
-  user: Friend_User;
+  user: User;
   onRemove: (username: string) => void; // 사용자 제거 버튼 클릭 시 실행되는 함수
 }
 
 const ListFriend: React.FC<ListFriendProps> = ({ user, onRemove }) => {
     return (
-        <div 
-            onClick={() => window.open(user.instagramLink, '_blank')}
-            className="w-full flex items-center justify-between px-5 py-2 hover:bg-gray100 cursor-pointer">
+        <div className="w-full flex items-center justify-between px-5 py-2 hover:bg-gray100 cursor-pointer">
         {/* 프로필 이미지 및 정보 */}
         <div className="flex items-center space-x-4">
             {/* 프로필 이미지 */}
@@ -30,8 +29,8 @@ const ListFriend: React.FC<ListFriendProps> = ({ user, onRemove }) => {
             </div>
             {/* 사용자 정보 */}
             <div className='flex flex-col items-start gap-[-2px]'>
-            <div className="text-body-2-b text-black">{user.username}</div>
-            <div className="text-body-2-m text-gray500">{user.displayName}</div>
+                <span className="text-body-2-b text-black">{user.username}</span>
+                <span className="text-body-2-m text-gray500">{user.displayName}</span>
             </div>
         </div>
         {/* Remove 버튼 */}

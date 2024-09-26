@@ -1,45 +1,40 @@
 import React, { useState } from 'react';
 import TNB from '../../../components/Navigation/TNB';
 import ListFriend from '../../../components/List/ListFriend';
-import { Friend_User, User } from '../../../types/types';
+import { User } from '../../../types/types';
 
-const users: Friend_User[] = [
+const users: User[] = [
   {
+    user_id: 1,
     username: 'ceos.sinchon',
     displayName: 'CEOS',
     profileImage: require('../../../assets/Image/CEOS56.jpg'), // 실제 이미지 경로로 변경하세요
-    instagramLink: 'https://www.instagram.com/ceos.sinchon/',
   },
   {
+    user_id: 2,
     username: 'confiwns_',
     displayName: '윤영준',
     profileImage: require('../../../assets/Image/confiwns_.jpg'),
-    instagramLink: 'https://www.instagram.com/confiwns_/',
   },
   {
+    user_id: 3,
     username: 'Jippgago_sipdda',
     displayName: 'Instagram User',
-    // profileImage: '/path/to/image2.jpg',
   },
   {
+    user_id: 4,
     username: 'Jippgago_sipdda',
     displayName: 'Instagram User',
-    // profileImage: '/path/to/image2.jpg',
   },
   {
+    user_id: 5,
     username: 'Jippgago_sipdda',
     displayName: 'Instagram User',
-    // profileImage: '/path/to/image2.jpg',
   },
   {
+    user_id: 6,
     username: 'Jippgago_sipdda',
     displayName: 'Instagram User',
-    // profileImage: '/path/to/image2.jpg',
-  },
-  {
-    username: 'Jippgago_sipdda',
-    displayName: 'Instagram User',
-    // profileImage: '/path/to/image2.jpg',
   },
   
 ];

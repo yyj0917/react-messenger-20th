@@ -11,7 +11,6 @@ interface TextBubbleProps {
 export default function TextBubble({ text, isMine, user } : TextBubbleProps) {
     const [isOverflow, setIsOverflow] = useState(false);
     const textRef = useRef<HTMLSpanElement>(null);
-
     useEffect(() => {
         // 텍스트 요소가 렌더링된 후, 너비를 확인
         if (textRef.current) {
@@ -20,7 +19,7 @@ export default function TextBubble({ text, isMine, user } : TextBubbleProps) {
         }
     }, [text]);
     return (
-        <div className={`flex ${isMine ? "justify-end" : "justify-start"}`}>
+        <div className={`flex transition transform duration-500 ease-in-out animate-fade-in ${isMine ? "justify-end" : "justify-start"}`}>
             {/* 내가 보낸 메세지 */}
             {isMine ? (
                 <div className={`max-w-[280px] min-h-[40px] inline-flex justify-center items-center px-3 py-2 bg-main text-white text-body-1-b rounded-3xl`}>
@@ -33,12 +32,12 @@ export default function TextBubble({ text, isMine, user } : TextBubbleProps) {
                 <div className={`max-w-[280px] min-h-[40px] inline-flex justify-center gap-3   `}>
                     <span className="flex items-end">
                         <img
-                            src={profileImage}
+                            src={user?.profileImage}
                             alt={user?.username}
                             className="w-7 h-7 rounded-full object-cover"
                         />
                     </span>
-                    <span className={`px-3 py-2 bg-gray100 text-gray600 text-body-1-b rounded-3xl ${isOverflow ? "break-words" : ""}`}>
+                    <span className={`max-w-[240px] px-3 py-2 bg-gray100 text-gray600 text-body-1-b rounded-3xl ${isOverflow ? "break-words" : ""}`}>
                         {text}
                     </span>
                 </div>

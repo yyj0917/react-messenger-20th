@@ -31,13 +31,13 @@ export default function Profile() {
                 <span 
                     onClick={() => handleTabClick(1)}
                     className={`w-[186px] flex justify-center items-center px-0 py-2 cursor-pointer
-                    ${activeTab === 1 ? 'text-black border-b-2 border-black' : 'text-gray400'}`}>
+                    ${activeTab === 1 ? 'text-black border-b-2 border-black' : 'text-gray500'}`}>
                         <GridIcon/>
                 </span>
                 <span 
                     onClick={() => handleTabClick(2)}
                     className={`w-[186px] flex justify-center items-center px-0 py-2 cursor-pointer
-                    ${activeTab === 2 ? 'text-black border-b-2 border-black' : 'text-gray400'}`}>
+                    ${activeTab === 2 ? 'text-black border-b-2 border-black' : 'text-gray500'}`}>
                         <TagIcon/>
                 </span>            
             </div>
@@ -47,20 +47,20 @@ export default function Profile() {
                 // Grid 탭이 활성화된 경우 콘텐츠
                 <div className="grid grid-cols-3 gap-[1px]">
                     {images.map((img, index) => (
-                    <div key={index} className="w-[124px] h-[124px]">
-                        <img
-                        src={img}
-                        alt={`Image ${index + 1}`}
-                        className="w-full h-full object-cover"
-                        />
-                    </div>
+                        <div key={index} className="w-[124px] h-[124px] cursor-pointer">
+                            <img
+                            src={img}
+                            alt={`Image ${index + 1}`}
+                            className="w-full h-full object-cover"
+                            />
+                        </div>
                     ))}
                 </div>
                 ) : (
                 // Tag 탭이 활성화된 경우 콘텐츠
                 <div className='w-full h-full flex flex-col justify-center items-center'>
                     {/* Tag 콘텐츠 */}
-                    <TagIcon className='size-[75px] text-gray300'/>
+                    <TagIcon className='size-[75px] text-gray500'/>
                     <p className='text-gray600 text-title-1'>사진 없음</p>
                 </div>
                 )}

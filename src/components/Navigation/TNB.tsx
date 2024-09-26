@@ -9,21 +9,19 @@ import { ReactComponent as NewMessage } from '../../assets/svg/newMessage.svg';
 import { ReactComponent as RightIcon } from '../../assets/svg/right.svg';
 import { ReactComponent as CallIcon } from '../../assets/svg/call.svg';
 import { ReactComponent as VideoIcon } from '../../assets/svg/video.svg';
-import profileImage from '../../assets/Image/CEOS56.jpg';
 
 
 
-import { Chat, User } from '../../types/types';
+import { User } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 
 interface TNBProps {
     name: string;
     user?: User; // 필요한 경우에만 user 정보를 받음
-    chat?: Chat; // 필요한 경우에만 chat 정보를 받음
   }
   
 // TNB 컴포넌트 구현
-const TNB: React.FC<TNBProps> = ({ name, user, chat }) => {
+const TNB: React.FC<TNBProps> = ({ name, user }) => {
     const navigate = useNavigate();
     const renderTNBContent = () => {
         switch (name) {
@@ -52,7 +50,7 @@ const TNB: React.FC<TNBProps> = ({ name, user, chat }) => {
         case 'chatlist':
             return (
             <div className="w-full h-full flex justify-between items-center border-b-[0.5px] border-gray200 px-5">
-                <div className='flex justify-center items-center'>
+                <div className='flex justify-center items-center gap-[2px]'>
                     <LeftIcon className='w-8 h-8 p-1 cursor-pointer'/>
                     <div className='flex justify-center items-center hover:bg-gray100 hover:rounded-lg cursor-pointer'>
                         <span className='text-title-1'>s.ol_lala</span>
@@ -68,16 +66,16 @@ const TNB: React.FC<TNBProps> = ({ name, user, chat }) => {
             return (
             <div className="w-full h-full flex justify-between items-center px-5 py-3 border-b-[0.5px] border-gray200">
                 <div className="flex items-center gap-4">
-                    <LeftIcon onClick={()=>navigate("/chatting/chatList")} className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'/>
+                    <LeftIcon onClick={()=>navigate("/chatting/chatList")} className='w-8 h-8 p-1 cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'/>
                     <div className='flex items-center gap-[10px]'>
-                        <img src={profileImage} alt={user?.username} className='w-8 h-8 rounded-full object-cover' />
+                        <img src={user?.profileImage} alt={user?.username} className='w-8 h-8 rounded-full object-cover' />
                         <div className='flex flex-col rounded-lg hover:bg-gray100 cursor-pointer'>
-                            <span className='flex'>
-                                <p className='text-body-2-b text-black'>CEOS</p>
+                            <span className='flex items-center'>
+                                <p className='text-body-2-b text-black'>{user?.username}</p>
                                 <RightIcon/>
                             </span>
                             <span className='text-caption text-gray500'>
-                                ceos.sinchon
+                                {user?.displayName}
                             </span>
                         </div>
                     </div>

@@ -4,6 +4,9 @@ import {ReactComponent as PictureIcon} from '../../assets/svg/picture.svg';
 import {ReactComponent as StickerIcon} from '../../assets/svg/sticker.svg';
 import {ReactComponent as SearchIcon} from '../../assets/svg/search.svg';
 import {ReactComponent as SendIcon} from '../../assets/svg/send.svg';
+import { useParams } from 'react-router-dom';
+import useChatStore from '../../zustand/userStore';
+import KeyBoard from './KeyBoard';
 
 interface ChatBarProps {
   placeholder: string;
@@ -11,6 +14,12 @@ interface ChatBarProps {
 }
 
 const ChatBar = () => {
+    const { username } = useParams();
+    const { users, addMessage } = useChatStore();
+
+    // 현재 유저 정보 찾기
+    const currentUser = users.find(user => user.username === username);
+
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -26,16 +35,23 @@ const ChatBar = () => {
     const handleSendMessage = () => {
         
         if (inputValue.trim() !== '') {
-        //   onSendMessage(inputValue);
+            if (currentUser) {
+                addMessage(currentUser.user_id, inputValue, true); // 메시지를 zustand에 추가
+            }
             setInputValue(''); // 메시지 전송 후 입력 필드 초기화
             setIsFocused(false);
-
         }
     };
 
     return (
-        <div className={`w-full h-[44px] px-2 flex items-center `}>
+        <div className={`w-full ${isFocused ? 'h-[335px]' : 'h-[44px]'} px-2 flex flex-col items-center transition-all duration-300 ease-in-out`}>
 
+            {/* Keyboard 추가 */}
+            {isFocused && (
+                    <div className="mt-2 transition-all duration-300 ease-in-out">
+                    <KeyBoard />
+                    </div>
+                )}
             {/* Input field */}
             <label className='w-full h-full flex justify-between items-center gap-[10px] py-2 px-[7px] bg-gray100 rounded-3xl transition-all duration-300 ease-in-out'>
                 {isFocused ? (
@@ -59,7 +75,7 @@ const ChatBar = () => {
                             />
                         </div>
                         <span 
-                            onClick={()=>handleSendMessage}
+                            onClick={()=>handleSendMessage()}
                             className='w-[50px] h-[34px] flex justify-center items-center bg-main px-[11px] py-[3px] mr-[5px] rounded-3xl'>
                             <SendIcon className='text-white cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110' onClick={handleSendMessage}/>
                         </span>
@@ -85,7 +101,7 @@ const ChatBar = () => {
                     </>
                 )}
             </label>
-
+            
             
         </div>
     );

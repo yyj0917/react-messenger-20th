@@ -32,7 +32,7 @@ export default function Description() {
                 </div>
                 <div className='flex gap-2 items-center h-[18px] text-caption text-main'>
                     <LinkIcon className='fill-current text-main'/>
-                    <a href="https://www.instagram.com">www.instagram.com</a>
+                    <a href="https://www.instagram.com/confiwns_/">https://www.instagram.com/confiwns_/</a>
                 </div>
             </section>
             <footer className='px-4'>

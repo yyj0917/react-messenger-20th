@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+
+import type { Config } from 'tailwindcss';
+
+const config =  {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
@@ -22,6 +25,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Pretendard', 'sans-serif'], // Pretendard 폰트 추가
+        sf: ['SF Pro Text', 'sans-serif'], // SF Pro Display 폰트 추가
       },
       fontSize: {
         'title-1': ['26px', '39px'], // Title 1: 26px size, 39px line-height
@@ -31,12 +35,16 @@ module.exports = {
         'body-3': ['11px', '16px'],  // Body 3: 11px size, 16px line-height
         'caption': ['12px', '18px'], // Caption: 12px size, 18px line-height
       },
-      fontWeight: {
-        extrabold: 800,
-        bold: 700,
-        semibold: 600,
-        medium: 500,
+      keyframes: {
+        'fadeIn': {
+          from: { opacity: '0' , transform: 'translateY(20px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        }
       },
+      animation: {
+        'fadeIn': 'fadeIn 0.5s ease-in-out',
+      },
+
     },
   },
   plugins: [
@@ -82,10 +90,22 @@ module.exports = {
           lineHeight: '18px',
           fontWeight: '600', // SemiBold
         },
+        '.text-keyboard': {
+          fontSize: '23px',
+          lineHeight: 'normal',
+          fontWeight: '400', // ExtraBold
+        },
+        '.text-keyboard-2': {
+          fontSize: '16px',
+          lineHeight: 'normal',
+          fontWeight: '400', // ExtraBold
+        },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
-      require('tailwind-scrollbar-hide');
     },
+    require('tailwind-scrollbar-hide'),
   ],
-}
+} satisfies Config;
+
+export default config;
 
