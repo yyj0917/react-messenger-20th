@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      rounded: {
+        '4xl': '30px',
+      },
       colors: {
         white: '#FFFFFF',
         black: '#000000',
@@ -81,6 +84,7 @@ module.exports = {
         },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
+      require('tailwind-scrollbar-hide');
     },
   ],
 }

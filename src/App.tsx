@@ -16,7 +16,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/followList" element={<FollowList />} />
             <Route path="/chatting/chatList" element={<ChatList />} />
-            <Route path="/chatting/chatRoom" element={<ChatRoom />} />
+            <Route path="/chatting/chatRoom/:username" element={<ChatRoom />} />
           </Route>
       </Routes>
     </Router>

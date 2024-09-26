@@ -82,8 +82,8 @@ export default function FollowList() {
             <span className='w-full h-[40px] items-center px-4 py-2 self-stretch text-title-2'>All followers</span>
             {/* Followers List */}
             <section className='w-full h-[602px] overflow-y-auto scrollbar-hide'>
-              {users.map((user) => (
-                <ListFriend key={user.username} user={user} onRemove={handleRemove} />
+              {users.map((user, index) => (
+                <ListFriend key={index} user={user} onRemove={handleRemove} />
               ))}
             </section>
           </div>

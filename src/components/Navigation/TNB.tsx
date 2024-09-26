@@ -6,6 +6,12 @@ import { ReactComponent as PlusIcon } from '../../assets/svg/plus.svg';
 import { ReactComponent as MenuIcon } from '../../assets/svg/menu.svg';
 import { ReactComponent as LeftIcon } from '../../assets/svg/left.svg';
 import { ReactComponent as NewMessage } from '../../assets/svg/newMessage.svg';
+import { ReactComponent as RightIcon } from '../../assets/svg/right.svg';
+import { ReactComponent as CallIcon } from '../../assets/svg/call.svg';
+import { ReactComponent as VideoIcon } from '../../assets/svg/video.svg';
+import profileImage from '../../assets/Image/CEOS56.jpg';
+
+
 
 import { Chat, User } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
@@ -58,19 +64,27 @@ const TNB: React.FC<TNBProps> = ({ name, user, chat }) => {
                 </div>
             </div>
             );
-        case 'locked':
+        case 'chatroom':
             return (
-            <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                <button className="text-lg">{`<`}</button>
-                <div className="ml-2">
-                    <span className="font-bold">CEOS</span>
-                    <p className="text-sm text-gray-500">ceos.sinchon</p>
+            <div className="w-full h-full flex justify-between items-center px-5 py-3 border-b-[0.5px] border-gray200">
+                <div className="flex items-center gap-4">
+                    <LeftIcon onClick={()=>navigate("/chatting/chatList")} className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'/>
+                    <div className='flex items-center gap-[10px]'>
+                        <img src={profileImage} alt={user?.username} className='w-8 h-8 rounded-full object-cover' />
+                        <div className='flex flex-col rounded-lg hover:bg-gray100 cursor-pointer'>
+                            <span className='flex'>
+                                <p className='text-body-2-b text-black'>CEOS</p>
+                                <RightIcon/>
+                            </span>
+                            <span className='text-caption text-gray500'>
+                                ceos.sinchon
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div className="flex space-x-4">
-                <span>📞</span>
-                <span>🎥</span>
+                <div className="flex items-center gap-4">
+                    <span className='w-8 h-8 p-1'><CallIcon className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'/></span>
+                    <span className='w-8 h-8 p-1'><VideoIcon className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'/></span>
                 </div>
             </div>
             );
