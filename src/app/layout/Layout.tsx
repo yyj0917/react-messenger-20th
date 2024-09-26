@@ -6,7 +6,6 @@ import ChatBar from '../../components/ChatBar/ChatBar';
 
 const Layout = () => {
     const location = useLocation(); // 현재 경로 정보를 가져옴
-    console.log(location.pathname.startsWith("/chatting/chatRoom"));
 
     return (
         <div className="flex flex-col w-[375px] h-[812px] shadow-lg bg-white m-auto">

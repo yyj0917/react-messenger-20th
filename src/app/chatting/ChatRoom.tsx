@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import TNB from '../../components/Navigation/TNB';
 import ceos96 from '../../assets/Image/CEOS96.jpg';
-import ChatBar from '../../components/ChatBar/ChatBar';
+import TextBubble from '../../components/ChatBar/TextBubble';
 
 const ChatRoom: React.FC = () => {
     const { username } = useParams(); // URL에서 유저명 추출
@@ -19,7 +19,7 @@ const ChatRoom: React.FC = () => {
             {/* ChatRoom TNB */}
             <TNB name="chatroom"/>
 
-            <div className='w-full h-[calc(100%-56px-80px)] overflow-y-auto scrollbar-hide'>
+            <div className='w-full h-[calc(812px-56px-80px)] overflow-y-auto scrollbar-hide'>
                 {/* ChatRoom User Description */}
                 <div className='flex flex-col items-center gap-3 pt-8 px-12'>
                     <div className='w-[279px] flex flex-col items-center gap-2'>
@@ -35,12 +35,20 @@ const ChatRoom: React.FC = () => {
                 </div>
 
                 {/* ChatRoom Chat */}
-                <div className='w-full mt-[180px] flex flex-col items-center'>
+                <div className='w-full mt-[200px] flex flex-col gap-5 pb-5 items-center justify-end'>
                     {/* 채팅 시작 시각 */}
                     <span className='w-[108px] h-[16px] text-center text-body-3 text-gray500'>SEP 2 AT 3:26 PM</span>
+                    {/* 채팅 내용 */}
+                    <div className='w-full flex flex-col gap-3 px-3'>
+                        <TextBubble text={"안녕하세요! 세오스 합격하셨습니다"} isMine={false}/>
+                        <TextBubble text={"네??? 정말 합격인가요?"} isMine={true}/>
+                        <TextBubble text={"네 실화입니다 정말 축하합니다"} isMine={false}/>
+                        {/* <TextBubble text={"감사합니다!!"} isMine={true}/> */}
+                    </div>
                 </div>
 
                 {/* ChatBar */}
+
             </div>
         
         </div>
