@@ -8,11 +8,6 @@ import { useParams } from 'react-router-dom';
 import useChatStore from '../../zustand/userStore';
 import KeyBoard from './KeyBoard';
 
-interface ChatBarProps {
-  placeholder: string;
-  onSendMessage: (message: string) => void;
-}
-
 const ChatBar = () => {
     const { username } = useParams();
     const { users, addMessage } = useChatStore();

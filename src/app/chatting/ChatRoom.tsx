@@ -1,11 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import TNB from '../../components/Navigation/TNB';
-import ceos96 from '../../assets/Image/CEOS96.jpg';
 import TextBubble from '../../components/ChatBar/TextBubble';
 import useChatStore from '../../zustand/userStore';
-import { User } from '../../types/types';
-import KeyBoard from '../../components/ChatBar/KeyBoard';
 
 const ChatRoom: React.FC = () => {
     const { username } = useParams(); // URL에서 유저명을 추출
@@ -21,7 +18,7 @@ const ChatRoom: React.FC = () => {
         <div className="w-full h-full flex flex-col">
             {/* ChatRoom TNB 렌더링 속도차이로 인한 조건문 */}
             {currentUser && <TNB name="chatroom" user={currentUser} />}
-            <div className='w-full h-[calc(812px-56px-80px)] overflow-y-auto scrollbar-hide !important'>
+            <div className='w-full h-[676px] overflow-y-auto scrollbar-hide !important'>
                 {/* ChatRoom User Description */}
                 <div className='flex flex-col items-center gap-3 pt-8 px-12'>
                     <div className='w-[279px] flex flex-col items-center gap-2'>

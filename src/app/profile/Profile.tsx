@@ -46,12 +46,14 @@ export default function Profile() {
                 {activeTab === 1 ? (
                 // Grid 탭이 활성화된 경우 콘텐츠
                 <div className="grid grid-cols-3 gap-[1px]">
-                    {images.map((img, index) => (
-                        <div key={index} className="w-[124px] h-[124px] cursor-pointer">
+                    {images.map((image, index) => (
+                        <div
+                            // onClick={() => alert('난 햄찌야...')}
+                            key={index} className="w-[124px] h-[124px] cursor-pointer">
                             <img
-                            src={img}
-                            alt={`Image ${index + 1}`}
-                            className="w-full h-full object-cover"
+                                src={image}
+                                alt={`Image ${index + 1}`}
+                                className="w-full h-full object-cover"
                             />
                         </div>
                     ))}

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { User } from "../../types/types";
-import profileImage from "../../assets/Image/CEOS56.jpg";
 
 interface TextBubbleProps {
     text: string;

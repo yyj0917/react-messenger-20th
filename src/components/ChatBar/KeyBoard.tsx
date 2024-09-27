@@ -28,7 +28,7 @@ const KeyBoard = () => {
   return (
     <div className="w-[375px] h-[291px] flex flex-col gap-[6px] bg-gray400 px-[5px] py-[10px] ">
         {/* Render keys */}
-        <div className="keys grid gap-2">
+        <div className="grid gap-2">
             {keys.map((row, rowIndex) => (
             <div key={rowIndex} className="flex justify-center gap-[6px]">
                 {row.map((key) => (

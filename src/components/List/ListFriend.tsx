@@ -1,7 +1,5 @@
 import React from 'react';
 import { ReactComponent as HumanIcon } from '../../assets/svg/human.svg';
-// import { Friend_User } from '../../types/types';
-import { useNavigate } from 'react-router-dom';
 import { User } from '../../types/types';
 
 // ListFriend 컴포넌트의 props 타입
