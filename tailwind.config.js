@@ -1,10 +1,9 @@
-// /** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 
-import type { Config } from 'tailwindcss';
 
-const config =  {
+module.exports =  {
   content: [
-    './index.html',
+    './public/index.html',
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
@@ -105,6 +104,4 @@ const config =  {
     },
     require('tailwind-scrollbar-hide'),
   ],
-} satisfies Config;
-
-export default config;
+}

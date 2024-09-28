@@ -48,7 +48,7 @@ export default function Profile() {
                 <div className="grid grid-cols-3 gap-[1px]">
                     {images.map((image, index) => (
                         <div
-                            // onClick={() => alert('난 햄찌야...')}
+                            onClick={() => alert('난 햄찌야...')}
                             key={index} className="w-[124px] h-[124px] cursor-pointer">
                             <img
                                 src={image}
