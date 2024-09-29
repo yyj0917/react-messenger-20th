@@ -6,18 +6,17 @@ import ChatBar from '../../components/ChatBar/ChatBar';
 
 const Layout = () => {
     const location = useLocation(); // 현재 경로 정보를 가져옴
+    const isLocationCheck = location.pathname.startsWith("/chatting/chatRoom");
 
     return (
         <div className="flex flex-col w-[375px] h-[812px] shadow-lg bg-white m-auto">
-            <main className="w-full h-[732px]">
+            <main className={`
+                w-full ${isLocationCheck ? 'h-[812px]' : 'h-[732px]'}
+            `}>
                 <Outlet /> {/* 자식 Route 컴포넌트가 여기에서 렌더링됩니다 */}
             </main>
             {/* <NavBar /> */}
-            {!location.pathname.startsWith("/chatting/chatRoom") ? (
-                <GNB />
-            ) : (
-                <ChatBar />
-            )}
+            {!isLocationCheck && <GNB />}
         </div>
     );
 };

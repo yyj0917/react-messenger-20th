@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import TNB from '../../components/Navigation/TNB';
 import TextBubble from '../../components/ChatBar/TextBubble';
 import useChatStore from '../../zustand/userStore';
+import ChatBar from '../../components/ChatBar/ChatBar';
 
 const ChatRoom: React.FC = () => {
     const { username } = useParams(); // URL에서 유저명을 추출
@@ -13,12 +14,25 @@ const ChatRoom: React.FC = () => {
     // 현재 유저의 메시지를 zustand로부터 가져옴
     const messages = currentUser ? getUserMessages(currentUser.user_id) : [];
 
+    // 스크롤 자동 하강
+    const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+          if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 500); // 100ms의 짧은 지연 시간 설정
+      
+        return () => clearTimeout(timeout); // 컴포넌트 언마운트 시 타이머 정리
+      }, [messages]);
+      
 
     return (
         <div className="w-full h-full flex flex-col">
             {/* ChatRoom TNB 렌더링 속도차이로 인한 조건문 */}
             {currentUser && <TNB name="chatroom" user={currentUser} />}
-            <div className='w-full h-[676px] overflow-y-auto scrollbar-hide !important'>
+            <div className='w-full h-[676px] flex flex-col overflow-y-auto scrollbar-hide !important'>
                 {/* ChatRoom User Description */}
                 <div className='flex flex-col items-center gap-3 pt-8 px-12'>
                     <div className='w-[279px] flex flex-col items-center gap-2'>
@@ -34,7 +48,7 @@ const ChatRoom: React.FC = () => {
                 </div>
 
                 {/* ChatRoom Chat */}
-                <div className='w-full mt-[200px] flex flex-col gap-5 pb-5 items-center justify-end'>
+                <div className='w-full flex flex-col mt-[200px] gap-5 pb-5 items-center justify-end'>
                     {/* 채팅 시작 시각 */}
                     <span className='w-[108px] h-[16px] text-center text-body-3 text-gray500'>SEP 2 AT 3:26 PM</span>
                     {/* 채팅 내용 */}
@@ -47,9 +61,14 @@ const ChatRoom: React.FC = () => {
                                 user={currentUser}
                             />
                             ))}
+                        {/* 스크롤 이동을 위한 빈 div */}
                     </div>
                 </div>
+
+                <div ref={messagesEndRef} />
             </div>
+            <ChatBar/>
+
         
         </div>
     );
