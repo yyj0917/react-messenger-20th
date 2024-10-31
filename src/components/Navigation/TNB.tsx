@@ -18,10 +18,12 @@ import { useNavigate } from 'react-router-dom';
 interface TNBProps {
     name: string;
     user?: User; // 필요한 경우에만 user 정보를 받음
+    handleChangeUser?: () => void;
   }
   
 // TNB 컴포넌트 구현
-const TNB: React.FC<TNBProps> = ({ name, user }) => {
+const TNB: React.FC<TNBProps> = ({ name, user, handleChangeUser }) => {
+    const icons = [<ThreadsIcon />, <PlusIcon />, <MenuIcon />];
     const navigate = useNavigate();
     const renderTNBContent = () => {
         switch (name) {
@@ -34,9 +36,14 @@ const TNB: React.FC<TNBProps> = ({ name, user }) => {
                     <span><DownIcon/></span>
                 </div>
                 <div className='w-[118px] flex justify-between items-center'>
-                    <span className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'><ThreadsIcon/></span>
-                    <span className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'><PlusIcon/></span>
-                    <span className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'><MenuIcon/></span>
+                    {icons.map((Icon, index) => (
+                        <span
+                            key={index}
+                            className="cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110"
+                        >
+                            {Icon}
+                        </span>
+                        ))}    
                 </div>
             </div>
             );
@@ -57,7 +64,7 @@ const TNB: React.FC<TNBProps> = ({ name, user }) => {
                         <DownIcon/>
                     </div>
                 </div>
-                <div className=''>
+                <div>
                     <NewMessage className='cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'/>
                 </div>
             </div>
@@ -67,11 +74,14 @@ const TNB: React.FC<TNBProps> = ({ name, user }) => {
             <div className="w-full h-full flex justify-between items-center px-5 py-3 border-b-[0.5px] border-gray200">
                 <div className="flex items-center gap-4">
                     <LeftIcon onClick={()=>navigate("/chatting/chatList")} className='w-8 h-8 p-1 cursor-pointer transition-transform duration-200 ease-in-out hover:scale-110'/>
-                    <div className='flex items-center gap-[10px]'>
-                        <img src={user?.profileImage} alt={user?.username} className='w-8 h-8 rounded-full object-cover' />
+                    <div 
+                        className='flex items-center gap-[10px]'
+                        onClick={handleChangeUser}
+                    >
+                        <img src={user?.profileImage} alt={user?.userName} className='w-8 h-8 rounded-full object-cover' />
                         <div className='flex flex-col rounded-lg hover:bg-gray100 cursor-pointer'>
                             <span className='flex items-center'>
-                                <p className='text-body-2-b text-black'>{user?.username}</p>
+                                <p className='text-body-2-b text-black'>{user?.userName}</p>
                                 <RightIcon/>
                             </span>
                             <span className='text-caption text-gray500'>

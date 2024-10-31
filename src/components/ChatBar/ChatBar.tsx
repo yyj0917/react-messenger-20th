@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {ReactComponent as CameraFillIcon} from '../../assets/svg/cameraFill.svg';
 import {ReactComponent as PictureIcon} from '../../assets/svg/picture.svg';
 import {ReactComponent as StickerIcon} from '../../assets/svg/sticker.svg';
@@ -13,18 +13,16 @@ const ChatBar = () => {
     const { users, addMessage } = useChatStore();
 
     // 현재 유저 정보 찾기
-    const currentUser = users.find(user => user.username === username);
+    const currentUser = users.find(user => user.userName === username);
 
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
-        if (e.target.value.trim() === '') {
-            setIsFocused(false);
-        } else {
-            setIsFocused(true);
-        }
+        setIsFocused(e.target.value.trim() !== '');
+
     }
 
     const handleSendMessage = () => {
@@ -37,25 +35,40 @@ const ChatBar = () => {
             setIsFocused(false);
         }
     };
+    const handleKeyPress = (key: string) => {
+        let newValue = inputValue;
+
+        if (key === 'backspace') {
+            newValue = inputValue.slice(0, -1);
+        } else if (key === 'return') {
+            handleSendMessage();
+            newValue = '';
+        } else if (key === 'space') {
+            newValue = inputValue + ' ';
+        } else {
+            newValue = inputValue + key;
+        }
+
+        setInputValue(newValue);
+        
+        // `ref`를 사용해 `input` 필드에 직접 반영
+        if (inputRef.current) {
+            inputRef.current.value = newValue;
+        }
+    };
 
     return (
         <div className={`w-full ${isFocused ? 'h-[335px]' : 'h-[44px]'} px-2 flex flex-col items-center transition-all duration-300 ease-in-out`}>
-
-            {/* Keyboard 추가 */}
-            {isFocused && (
-                    <div className="mt-2 transition-all duration-300 ease-in-out">
-                    <KeyBoard />
-                    </div>
-                )}
             {/* Input field */}
             <label className='w-full h-full flex justify-between items-center gap-[10px] py-2 px-[7px] bg-gray100 rounded-3xl transition-all duration-300 ease-in-out'>
                 {isFocused ? (
                     <>
                         <div className='flex gap-[10px]'>
                             <span className='w-8 h-8 p-[2px] rounded-2xl bg-white'>
-                                <SearchIcon className='text-main cursor-pointer fill-current'/>
+                                <SearchIcon className='text-main cursor-pointer '/>
                             </span>
                             <input
+                                ref={inputRef}
                                 type="text"
                                 placeholder="텍스트를 입력하세요..."
                                 value={inputValue}
@@ -82,6 +95,7 @@ const ChatBar = () => {
                                 <CameraFillIcon className='cursor-pointer '/>
                             </span>
                             <input
+                                ref={inputRef}
                                 type="text"
                                 placeholder="Message..."
                                 value={inputValue}
@@ -96,8 +110,12 @@ const ChatBar = () => {
                     </>
                 )}
             </label>
-            
-            
+            {/* Keyboard 추가 */}
+            {isFocused && (
+                    <div className="mt-2 transition-all duration-300 ease-in-out">
+                        <KeyBoard onKeyPress={handleKeyPress} />
+                    </div>
+            )}
         </div>
     );
 };

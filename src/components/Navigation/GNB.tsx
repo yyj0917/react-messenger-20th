@@ -4,7 +4,7 @@ import Icon from './Icon';
 export default function GNB() {
 
     return (
-        <nav className='flex justify-center items-start shrink-0 w-[375px] h-[80px] pb-[30px] border-t-[0.5px] border-gray200'>
+        <nav className='flex justify-center items-start shrink-0 w-[375px] h-[50px] border-t-[0.5px] border-gray200'>
             <Icon name='home' route='/home' />
             <Icon name='search' route='/search' />
             <Icon name='like' route='/likes' />

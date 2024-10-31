@@ -49,7 +49,7 @@ export default function Profile() {
                     {images.map((image, index) => (
                         <div
                             onClick={() => alert('난 햄찌야...')}
-                            key={index} className="w-[124px] h-[124px] cursor-pointer">
+                            key={index} className="w-[124px] h-[124px] cursor-pointer hover:opacity-80 transition-transform duration-200">
                             <img
                                 src={image}
                                 alt={`Image ${index + 1}`}

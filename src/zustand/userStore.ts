@@ -14,7 +14,7 @@ const useChatStore = create<ChatState>()(
       users: [
         {
             user_id: 1,
-            username: 'CEOS',
+            userName: 'CEOS',
             displayName: 'ceos.sinchon',
             profileImage: require('../assets/Image/CEOS56.jpg'),
             posts: 174,
@@ -31,41 +31,41 @@ const useChatStore = create<ChatState>()(
         },
         {
             user_id: 2,
-            username: 'confiwns_',
+            userName: 'confiwns_',
             displayName: '윤영준',
             profileImage: require('../assets/Image/confiwns_.jpg'),
             posts: 0,
             followers: 302,
             following: 335,
             messages: [
-                { id: 1, text: "야 니 머허냐? 정신 안 차려?", isMine: false },
-                { id: 2, text: "쏘리. 그럴 수도 있지...", isMine: true },
-                { id: 3, text: "머함?", isMine: true },
-                { id: 4, text: "누워있어. 요즘 흑백요리사 하는데 너무 재밌다. 흥미진진한데 큰일났네 곧 시험기간인데", isMine: false },
-                { id: 5, text: "괜찮아. 다 똑같아 ^ㅡ^", isMine: true },
+                { id: 1, text: "안녕", isMine: false },
+                { id: 2, text: "반가워 나도.", isMine: true },
+                { id: 3, text: "뭐해?", isMine: true },
+                { id: 4, text: "누워있어. 그냥", isMine: false },
+                { id: 5, text: "멋있네", isMine: true },
             ],
-            lastMessage: "괜찮아. 다 똑같아 ^ㅡ^",
+            lastMessage: "멋있네",
             updatedAt: "·30m",
             isActivated: false,
         },
         {
             user_id: 3,
-            username: 'hamzzi_cute',
+            userName: 'hamzzi_cute',
             displayName: '햄찌',
             profileImage: require('../assets/Image/hamzzi.jpg'),
             posts: 5,
             followers: 227,
             following: 5,
             messages: [
-                { id: 1, text: "전 햄찌에요. 옆에 귀여운 친구도 있어요. 반가워요.", isMine: false }
+                { id: 1, text: "I`m Hamster. Not Ganster", isMine: false }
             ],
-            lastMessage: "전 햄찌에요. 옆에 귀여운 친구도 있어요. 반가워요.",
+            lastMessage: "I`m Hamster. Not Ganster",
             updatedAt: "·30m",
             isActivated: true,
         },
         {
             user_id: 4,
-            username: 'totoro_totoro',
+            userName: 'totoro_totoro',
             displayName: '토토로',
             profileImage: require('../assets/Image/totoro.jpg'),
             posts: 2,
@@ -77,7 +77,7 @@ const useChatStore = create<ChatState>()(
             lastMessage: "나는 토토로. 탐정이야.",
             updatedAt: "·4h",
             isActivated: true,
-        }
+        },
       ],
 
       // 특정 user_id에 맞는 메시지 배열에 메시지 추가

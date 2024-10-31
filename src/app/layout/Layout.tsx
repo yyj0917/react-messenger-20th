@@ -9,9 +9,9 @@ const Layout = () => {
     const isLocationCheck = location.pathname.startsWith("/chatting/chatRoom");
 
     return (
-        <div className="flex flex-col w-[375px] h-[812px] shadow-lg bg-white m-auto">
+        <div className="flex flex-col w-[375px] h-[100vh] shadow-lg bg-white m-auto overflow-hidden">
             <main className={`
-                w-full ${isLocationCheck ? 'h-[812px]' : 'h-[732px]'}
+                w-full h-full
             `}>
                 <Outlet /> {/* 자식 Route 컴포넌트가 여기에서 렌더링됩니다 */}
             </main>

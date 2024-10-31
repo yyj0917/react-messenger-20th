@@ -16,7 +16,7 @@ const ListChat: React.FC<ListChatProps> = ({ user }) => {
 
     return (
         <div 
-            onClick={()=>navigate(`/chatting/chatRoom/${user.username}`)}
+            onClick={()=>navigate(`/chatting/chatRoom/${user.userName}`)}
             className=" w-full h-[72px] flex items-center justify-between px-4 py-2 hover:bg-gray100 cursor-pointer">
             {/* 프로필 이미지 및 정보 */}
             <div className="flex items-center gap-3">
@@ -25,7 +25,7 @@ const ListChat: React.FC<ListChatProps> = ({ user }) => {
                     {user.profileImage ? (
                         <img
                         src={user.profileImage}
-                        alt={user.username}
+                        alt={user.userName}
                         className="w-full h-full object-cover"
                         />
                     ) : (
@@ -35,7 +35,7 @@ const ListChat: React.FC<ListChatProps> = ({ user }) => {
 
             {/* 사용자 정보 */}
             <div className='flex flex-col'>
-                <p className="text-body-2-b">{user.username}</p>
+                <p className="text-body-2-b">{user.userName}</p>
                 <div className='flex items-center gap-3'>
                     <p 
                         className={`max-w-[157px] text-body-2-b truncate

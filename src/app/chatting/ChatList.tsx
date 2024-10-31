@@ -17,8 +17,8 @@ export default function ChatList() {
 
         {/* ChatList User */}
         <section className='w-full h-[636px] overflow-y-auto scollbar-hide'>
-            {users.map((user, index) => (
-                <ListChat key={index} user={user} />
+            {users.map((user) => (
+                <ListChat key={user.user_id} user={user} />
             ))}
         </section>
       </div>
